@@ -1,0 +1,165 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.2 | 20191019
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+  display: none;
+}
+
+body {
+  line-height: 1;
+}
+
+menu, ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-family: "Jua", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+[class^=section-] {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.title h3 {
+  font-size: 2.5rem;
+}
+
+.section-visual {
+  height: 100vh;
+}
+.section-visual .swiper {
+  height: 100%;
+}
+.section-visual .swiper-slide {
+  position: relative;
+  height: 100%;
+  background: white;
+}
+.section-visual .swiper-slide-bg {
+  position: absolute;
+  top: -22vw;
+  right: -5vw;
+  border-radius: 50%;
+  width: 70vw;
+  height: 70vw;
+  overflow: hidden;
+}
+.section-visual .swiper-slide-bg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section-visual .swiper-slide .container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+.section-visual .swiper-slide-text h3 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.section-visual .swiper-slide-text p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.section-look .swiper-slide {
+  text-align: center;
+  overflow: hidden;
+  opacity: 0.5;
+}
+.section-look .swiper-slide .img-content {
+  height: 17.5rem;
+}
+.section-look .swiper-slide .img-content img {
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.section-look .swiper-slide .text-content p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+.section-look .swiper-slide .text-content span {
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+.section-look .swiper-slide.swiper-slide-active {
+  z-index: 2;
+  opacity: 1;
+}
+.section-look .swiper-slide.swiper-slide-active .img-content img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.section-play {
+  background: #d8f0fd;
+}
