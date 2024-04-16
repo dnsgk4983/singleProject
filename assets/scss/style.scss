@@ -1,41 +1,18 @@
-@import 'reset';
+@import 'base/reset';
 
-html {
-    font-family: "Jua", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
+@import 'components/common';
 
-[class^='section-'] {
-    position: relative;
-    overflow: hidden;
-}
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 5rem 0;
-}
-
-.title {
-    text-align: center;
-    margin-bottom: 2rem;
-    h3 {
-        font-size: 2.5rem;
-    }
-}
 .section {
     &-visual {
-        height: 100vh;
         .swiper {
-            height: 100%;
             &-slide {
                 position: relative;
-                height: 100%;
                 background: white;
+                padding: 30rem 0 7.5rem;
                 &-bg {
                     position: absolute;
-                    top: -22vw;
+                    top: -28vw;
                     right: -5vw;
                     border-radius: 50%;
                     width: 70vw;
@@ -49,21 +26,41 @@ html {
                     }
                 }
                 .container {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 5rem;
-                    background: rgba(255, 255, 255, 0.4);
+                    z-index: 2;
+                    position: relative;
+                    padding: 5rem 3rem;
+                    background: rgba(255, 255, 255, 0.6);
+                    box-sizing: border-box;
                 }
                 &-text {
                     h3 {
                         font-size: 3rem;
                         font-weight: 700;
+                        opacity: 0;
+                        transform: translateX(-30px);
+                        transition: all .3s;
                     }
                     p {
                         font-size: 2rem;
                         font-weight: 600;
                         margin-top: 1rem;
+                        opacity: 0;
+                        transform: translateX(-30px);
+                        transition: all .3s;
+                        transition-delay: .3s;
+                    }
+                }
+
+                &-active {
+                    .swiper-slide-text {
+                        h3 {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                        p {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
                     }
                 }
             }
@@ -91,11 +88,17 @@ html {
                     p {
                         font-size: 1.25rem;
                         font-weight: 600;
-                        margin: 1rem 0 0.5rem;
+                        margin: 1.5rem 0 1rem;
                     }
                     span {
+                        display: -webkit-box;
+                        text-overflow: ellipsis;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        -webkit-line-clamp: 3;
                         font-size: 0.875rem;
-                        font-weight: 300;
+                        line-height: 1.4;
+                        font-weight: 100;
                     }
                 }
 
@@ -114,5 +117,164 @@ html {
 
     &-play {
         background: #d8f0fd;
+
+        .play-contents {
+            &-info {
+                display: flex;
+            }
+            &-photo {
+                width: 50%;
+                height: 25rem;
+                line-height: 0;
+                overflow: hidden;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &-text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 50%;
+                height: 25rem;
+                text-align: center;
+                padding: 0 5rem;
+                box-sizing: border-box;
+                background: rgba(255, 255, 255, 0.4);
+                p {
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                    margin-bottom: 0.75rem;
+                }
+                span {
+                    font-size: 1.125rem;
+                    line-height: 1.4;
+                }
+            }
+
+            &-tabs {
+                margin-top: 2rem;
+                ul {
+                    display: flex;
+                    li {
+                        position: relative;
+                        width: 25%;
+                        margin-right: 2rem;
+                        overflow: hidden;
+                        border-radius: 1rem 0 1rem 0;
+                        cursor: pointer;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                        .dim {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 1rem 0 1rem;
+                            transform: scaleX(0);
+                            transition: all .3s;
+                            transform-origin: center center;
+                            background: rgba(0, 0, 0, 0.75);
+                            p {
+                                font-size: 1.125rem;
+                                color: white;
+                            }
+                        }
+                        &:hover {
+                            .dim {
+                                transform: scaleX(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-eat {
+        ul {
+            display: flex;
+            li {
+                width: 25%;
+                margin-right: 2rem;
+                &:last-child {
+                    margin-right: 0;
+                }
+                .img-box {
+                    position: relative;
+                    width: 100%;
+                    height: 37.5rem;
+                    overflow: hidden;
+                    img {
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
+                .text-box {
+                    text-align: center;
+                    margin-top: 1.5rem;
+                    p {
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                        margin-bottom: 0.75rem;
+                    }
+                    span {
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &-location {
+        background: #f5f3f3;
+        .text {
+            text-align: center;
+            margin-bottom: 2rem;
+            p {
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+            span {
+                display: block;
+                font-size: 0.875rem;
+                line-height: 1.4;
+            }
+        }
+        #map {
+            width: 100%;
+            height: 30rem;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 1.875rem 0;
+    background: #444;
+    p {
+        font-size: 0.75rem;
+        line-height: 2;
+        color: white;
     }
 }

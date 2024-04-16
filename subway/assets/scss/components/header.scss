@@ -1,0 +1,98 @@
+header {
+    border-top: 5px solid $mainColorGreen;
+    background: white;
+    .gnb-header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem 0 4rem;
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .util {
+            ul {
+                display: flex;
+                align-items: center;
+                li {
+                    margin-left: 1rem;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    a {
+                        display: block;
+                        font-size: 0.875rem;
+                        color: #666;
+                        &.global {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            background: url('../images/icon_util.png') no-repeat center center / cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .gnb-menu {
+        border-bottom: 1px solid #f3f3f3;
+        > ul {
+            display: flex;
+            max-width: 1140px;
+            margin: 0 auto;
+            li {
+                z-index: 10;
+                position: relative;
+                width: 190px;
+                text-align: center;
+                padding: 1.5rem 0;
+                p {
+                    font-size: 1.125rem;
+                    font-weight: 600;
+                    color: #333;
+                    cursor: pointer;
+                }
+                .sub-menu {
+                    position: absolute;
+                    top: 100%;
+                    transform: scaleY(0);
+                    flex-direction: column;
+                    transform-origin: top;
+                    border: 2px solid $mainColorGreen;
+                    border-top: none;
+                    background: white;
+                    li {
+                        padding: 0;
+                        a {
+                            display: block;
+                            color: #333;
+                            font-size: 0.875rem;
+                            padding: 1rem 0;
+                        }
+                    }
+                }
+                &:hover {
+                    p {
+                        color: $mainColorGreen;
+                    }
+                    .sub-menu {
+                        transition: all .3s;
+                        transform: scaleY(1);
+                        li {
+                            &:hover {
+                                a {
+                                    color: white;
+                                    background: $mainColorGreen;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
