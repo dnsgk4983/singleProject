@@ -37,6 +37,7 @@
                     position: relative;
                     font-size: 1.125rem;
                     margin: 0 1rem;
+                    cursor: pointer;
                     &:after {
                         content: "";
                         position: absolute;
@@ -69,57 +70,97 @@
         }
 
         .menu-wrapper {
-            overflow: hidden;
+            .menu-swiper {
+                display: none;
+                &.active {
+                    display: block;
+                }
+                &-wrapper {
+                    position: relative;
+                    padding: 0 3.75rem;
+                    overflow: hidden;
+                }
+            }
             .swiper {
                 &-slide {
+                    position: relative;
                     text-align: center;
                     a {
+                        position: relative;
+                        display: block;
                         color: #333;
+                        padding: 0 1.25rem;
                         p {
                             font-size: 1.125rem;
                             font-weight: 700;
                             margin-bottom: 1rem;
                         }
                         span {
+                            display: -webkit-box;
+                            -webkit-box-orient: vertical;
+                            text-overflow: ellipsis;
                             font-size: 0.875rem;
+                            overflow: hidden;
+                            line-height: 1.4;
+                            -webkit-line-clamp: 3;
+                        }
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            display: block;
+                            width: 3rem;
+                            height: 3rem;
+                            border-radius: 50%;
+                            transform: translate(-50%, -50%) scale(0);
+                            transition: all .3s;
+                            transform-origin: center center;
+                            background: $mainColorOrange url('../images/icon_search.png') no-repeat center center / 50%;
+                        }
+
+                        &:hover {
+                            &:before {
+                                transform: translate(-50%, -50%) scale(1);
+                            }
                         }
                     }
                 }
 
                 &-button {
                     z-index: 10;
-                    width: 3rem;
-                    height: 3rem;
+                    width: 3.75rem;
+                    height: 3.75rem;
                     margin-top: 0;
                     border-radius: 50%;
-                    background: rgba(0, 0, 0, 0.3);
                     opacity: 1;
+                    transform: translateY(-50%);
                     &:after {
                         content: "";
-                        width: 0.75rem;
-                        height: 0.75rem;
-                        border-top: 2px solid $mainColorOrange;
-                        border-right: 2px solid $mainColorOrange;
                     }
                     &-prev {
-                        left: -1.875rem;
-                        &:after {
-                            transform: rotate(-135deg);
-                            margin-left: 0.25rem;
-                        }
+                        left: 0;
+                        background: url('../images/icon_prev.png') no-repeat center center / 20px;
                     }
                     &-next {
-                        right: -1.875rem;
-                        &:after {
-                            transform: rotate(45deg);
-                            margin-right: 0.25rem;
-                        }
+                        right: 0;
+                        background: url('../images/icon_next.png') no-repeat center center / 20px;
+                    }
+                    &:hover {
+                        background-color: $mainColorGreen;
                     }
                     &-disabled {
-                        opacity: 0.5;
+                        opacity: 0.3;
+                    }
+                    &-lock {
+                        display: flex;
                     }
                 }
             }
         }
+    }
+    &-enjoy {
+        background: url('../images/bg_content.gif');
     }
 }
