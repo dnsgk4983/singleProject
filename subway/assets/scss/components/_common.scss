@@ -39,3 +39,12 @@ $mainColorOrange: #ffc20d;
         background: $mainColorOrange;
     }
 }
+
+.sub-title {
+    margin-top: 1.5rem;
+    p {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+}

@@ -109,21 +109,24 @@ a {
   background: #ffc20d;
 }
 
+.sub-title {
+  margin-top: 1.5rem;
+}
+.sub-title p {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
 header {
   border-top: 5px solid #009223;
   background: white;
 }
 header .gnb-header {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
   max-width: 1140px;
   margin: 0 auto;
   padding: 2rem 0 4rem;
@@ -132,16 +135,11 @@ header .gnb-header .logo {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 header .gnb-header .util ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 header .gnb-header .util ul li {
   margin-left: 1rem;
@@ -163,8 +161,6 @@ header .gnb-menu {
   border-bottom: 1px solid #f3f3f3;
 }
 header .gnb-menu > ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   max-width: 1140px;
   margin: 0 auto;
@@ -185,14 +181,9 @@ header .gnb-menu > ul li p {
 header .gnb-menu > ul li .sub-menu {
   position: absolute;
   top: 100%;
-  -webkit-transform: scaleY(0);
-          transform: scaleY(0);
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  transform: scaleY(0);
+  flex-direction: column;
+  transform-origin: top;
   border: 2px solid #009223;
   border-top: none;
   background: white;
@@ -210,14 +201,89 @@ header .gnb-menu > ul li:hover p {
   color: #009223;
 }
 header .gnb-menu > ul li:hover .sub-menu {
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  -webkit-transform: scaleY(1);
-          transform: scaleY(1);
+  transform: scaleY(1);
 }
 header .gnb-menu > ul li:hover .sub-menu li:hover a {
   color: white;
   background: #009223;
+}
+
+.quick-menu {
+  z-index: 100;
+  position: fixed;
+  left: 50%;
+  bottom: 10rem;
+  transform: translateX(-50%);
+  margin-left: 40vw;
+}
+.quick-menu-button {
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  background: #ffc20d;
+  box-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
+}
+.quick-menu-button a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: all 0.3s;
+}
+.quick-menu-button a:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 0.25rem;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+.quick-menu-button a:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.25rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+.quick-menu-list {
+  position: absolute;
+  left: 50%;
+  margin-bottom: 1.5rem;
+  bottom: 100%;
+  transform: scaleY(0) translateX(-50%);
+  transform-origin: bottom;
+  transition: all 0.15s;
+  transition-delay: 0.3s;
+}
+.quick-menu-list ul li {
+  background: #009223;
+}
+.quick-menu-list ul li:nth-child(2n) {
+  background: #ffc20d;
+}
+.quick-menu-list ul li a {
+  display: block;
+  min-width: 12.5rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 1.125rem;
+  color: white;
+  font-weight: 600;
+}
+.quick-menu.active .quick-menu-button a {
+  transform: rotate(45deg);
+}
+.quick-menu.active .quick-menu-list {
+  transform: scaleY(1) translateX(-50%);
 }
 
 .section-title .container {
@@ -242,15 +308,9 @@ header .gnb-menu > ul li:hover .sub-menu li:hover a {
   margin: 1.5rem 0 3rem;
 }
 .section-menu .menu-tabs ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end;
 }
 .section-menu .menu-tabs ul li {
   position: relative;
@@ -266,8 +326,7 @@ header .gnb-menu > ul li:hover .sub-menu li:hover a {
   width: 1px;
   height: 0.75rem;
   background: rgba(0, 0, 0, 0.3);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .section-menu .menu-tabs ul li:first-child {
   margin-left: 0;
@@ -329,17 +388,13 @@ header .gnb-menu > ul li:hover .sub-menu li:hover a {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
-  -webkit-transition: all 0.3s;
+  transform: translate(-50%, -50%) scale(0);
   transition: all 0.3s;
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
+  transform-origin: center center;
   background: #ffc20d url("../images/icon_search.png") no-repeat center center/50%;
 }
 .section-menu .menu-wrapper .swiper-slide a:hover:before {
-  -webkit-transform: translate(-50%, -50%) scale(1);
-          transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 .section-menu .menu-wrapper .swiper-button {
   z-index: 10;
@@ -348,8 +403,7 @@ header .gnb-menu > ul li:hover .sub-menu li:hover a {
   margin-top: 0;
   border-radius: 50%;
   opacity: 1;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .section-menu .menu-wrapper .swiper-button:after {
   content: "";
@@ -369,9 +423,19 @@ header .gnb-menu > ul li:hover .sub-menu li:hover a {
   opacity: 0.3;
 }
 .section-menu .menu-wrapper .swiper-button-lock {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
+}
+.section-news {
+  background: #009223;
+}
+.section-news .title h2 {
+  color: white;
+}
+.section-news .sub-title {
+  margin-top: 1.5rem;
+}
+.section-news .sub-title p {
+  color: white;
 }
 .section-enjoy {
   background: url("../images/bg_content.gif");

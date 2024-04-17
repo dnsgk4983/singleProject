@@ -1,6 +1,8 @@
 @import 'base/reset';
 @import 'components/common';
+// 구간별
 @import 'components/header';
+@import 'components/quick';
 
 
 .section {
@@ -160,6 +162,22 @@
             }
         }
     }
+
+    &-news {
+        background: $mainColorGreen;
+        .title {
+            h2 {
+                color: white;
+            }
+        }
+        .sub-title {
+            margin-top: 1.5rem;
+            p {
+                color: white;
+            }
+        }
+    }
+
     &-enjoy {
         background: url('../images/bg_content.gif');
     }

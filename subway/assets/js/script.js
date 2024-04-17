@@ -33,4 +33,15 @@
             }
         });
     });
+
+    // 퀵메뉴 클릭 이벤트
+    let quickMenu = document.querySelector(`.quick-menu`)
+    let quickBtn = document.querySelector(`.quick-menu-button a`);
+    quickBtn.addEventListener(`click`, () => {
+        if(quickMenu.classList.contains(`active`)) {
+            quickMenu.classList.remove(`active`);
+        } else {
+            quickMenu.classList.add(`active`);
+        }
+    });
 })();

@@ -1,0 +1,86 @@
+.quick {
+    &-menu {
+        z-index: 100;
+        position: fixed;
+        left: 50%;
+        bottom: 10rem;
+        transform: translateX(-50%);
+        margin-left: 40vw;
+        &-button {
+            position: relative;
+            width: 3.75rem;
+            height: 3.75rem;
+            border-radius: 50%;
+            background: $mainColorOrange;
+            box-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.3);
+            a {
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+                transform-origin: center center;
+                transition: all .3s;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 2rem;
+                    height: 0.25rem;
+                    border-radius: 0.25rem;
+                    background: white;
+                    transform: translate(-50%, -50%);
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0.25rem;
+                    height: 2rem;
+                    border-radius: 0.25rem;
+                    background: white;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        &-list {
+            position: absolute;
+            left: 50%;
+            margin-bottom: 1.5rem;
+            bottom: 100%;
+            transform: scaleY(0) translateX(-50%);
+            transform-origin: bottom;
+            transition: all .15s;
+            transition-delay: .3s;
+            ul {
+                li {
+                    background: $mainColorGreen;
+                    &:nth-child(2n) {
+                        background: $mainColorOrange;
+                    }
+                    a {
+                        display: block;
+                        min-width: 12.5rem;
+                        padding: 0.875rem 1.25rem;
+                        font-size: 1.125rem;
+                        color: white;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            .quick-menu-button {
+                a {
+                    transform: rotate(45deg);
+                }
+            }
+            .quick-menu-list {
+                transform: scaleY(1) translateX(-50%);
+            }
+        }
+    }
+}
