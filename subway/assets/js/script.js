@@ -44,4 +44,30 @@
             quickMenu.classList.add(`active`);
         }
     });
+
+    // 메인 즐기는 방법
+    let enjoyTabs = document.querySelectorAll(`.enjoy-tabs li`);
+    enjoyTabs.forEach((item, idx) => {
+        item.addEventListener(`click`, () => {
+            enjoyTabs.forEach(disabledTab => {
+                disabledTab.classList.remove(`active`);
+            });
+            enjoyTabs[idx].classList.add(`active`);
+        });
+    });
+    let enjoyPrevButton = document.querySelector(`.enjoy-contents-button-prev`);
+    let enjoyNextButton = document.querySelector(`.enjoy-contents-button-next`);
+    let enjoySteps = document.querySelectorAll(`.enjoy-steps li`);
+    let enjoyContentsWrapper = document.querySelector(`.enjoy-contents ol`);
+    let enjoyContents = document.querySelectorAll(`.enjoy-contents ol li`);
+    let enjoyIdx = 0;
+    enjoyPrevButton.addEventListener(`click`, () => {
+        if(enjoyIdx < enjoyContents.length) {
+            enjoyIdx++;
+            let contentsWidth = enjoyContents[enjoyIdx].offsetWidth;
+            enjoyContentsWrapper.style.left = `-${contentsWidth}px`;
+        }
+    });
+    enjoyContents.forEach((content, idx) => {
+    });
 })();
