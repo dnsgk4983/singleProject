@@ -164,16 +164,21 @@
     }
 
     &-news {
-        background: $mainColorGreen;
-        .title {
-            h2 {
-                color: white;
-            }
-        }
-        .sub-title {
-            margin-top: 1.5rem;
-            p {
-                color: white;
+
+        .news-content {
+            margin-top: 3rem;
+            ul {
+                li {
+                    a {
+                        position: relative;
+                        font-size: 1.125rem;
+                        font-weight: 600;
+                        color: #333;
+                        &:hover {
+                            color: $mainColorGreen;
+                        }
+                    }
+                }
             }
         }
     }
