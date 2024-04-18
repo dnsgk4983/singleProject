@@ -56,18 +56,76 @@
         });
     });
     let enjoyPrevButton = document.querySelector(`.enjoy-contents-button-prev`);
-    let enjoyNextButton = document.querySelector(`.enjoy-contents-button-next`);
     let enjoySteps = document.querySelectorAll(`.enjoy-steps li`);
-    let enjoyContentsWrapper = document.querySelector(`.enjoy-contents ol`);
-    let enjoyContents = document.querySelectorAll(`.enjoy-contents ol li`);
+    let enjoyNextButton = document.querySelector(`.enjoy-contents-button-next`);
+    let enjoyContents = document.querySelectorAll(`.enjoy-contents-list ol li`);
+    let enjoyTexts = document.querySelectorAll(`.enjoy-contents-text ol li`);
+    let enjoyNum = document.querySelector(`.enjoy-contents-text-num`);
     let enjoyIdx = 0;
-    enjoyPrevButton.addEventListener(`click`, () => {
-        if(enjoyIdx < enjoyContents.length) {
+    let moveLeft;
+    
+    enjoyNextButton.addEventListener(`click`, () => {
+        if(enjoyIdx < enjoyContents.length - 1) {
             enjoyIdx++;
-            let contentsWidth = enjoyContents[enjoyIdx].offsetWidth;
-            enjoyContentsWrapper.style.left = `-${contentsWidth}px`;
+            enjoyMoveLeft();
         }
     });
-    enjoyContents.forEach((content, idx) => {
+
+    enjoyPrevButton.addEventListener(`click`, () => {
+        if(enjoyIdx != 0) {
+            enjoyIdx--;
+            enjoyMoveRight();
+        }
     });
+    
+    function enjoyMoveLeft() {
+        for(let i = 0; i < enjoyContents.length; i++) {
+            if( i < enjoyIdx) {
+                enjoyTexts[i].classList.remove(`active`);
+                enjoyContents[i].classList.remove(`active`);
+                if (i === enjoyIdx - 1) {
+                    enjoyContents[i].style.left = `-50%`;
+                } else {
+                    enjoyContents[i].style.left = `-100%`;
+                }
+            }  else if (i === enjoyIdx) {
+                enjoySteps[i].classList.add(`active`);
+                enjoyContents[i].classList.add(`active`);
+                enjoyTexts[i].classList.add(`active`);
+                enjoyNum.textContent = `STEP ${i + 1}`;
+                enjoyContents[i].style.left = `0`
+            } else {
+                if ( i === enjoyIdx + 1) {
+                    enjoyContents[i].style.left = `100%`;
+                } else {
+                    enjoyContents[i].style.left = `150%`;
+                }
+            }
+        }
+    }
+    function enjoyMoveRight() {
+        for(let i = 0; i < enjoyContents.length; i++) {
+            if (i === enjoyIdx) {
+                enjoyTexts[i].classList.add(`active`);
+                enjoyContents[i].classList.add(`active`);
+                enjoyNum.textContent = `STEP ${i + 1}`;
+                enjoyContents[i].style.left = `0`;
+            } else {
+                enjoyTexts[i].classList.remove(`active`);
+                enjoyContents[i].classList.remove(`active`);
+                if ( i === enjoyIdx + 1) {
+                    enjoyContents[i].style.left = `100%`;
+                    enjoySteps[i].classList.remove(`active`);
+                } else {
+                    if ( i === enjoyIdx - 1) {
+                        enjoyContents[i].style.left = `-50%`;
+                    } else if (i < enjoyIdx) {
+                        enjoyContents[i].style.left = `-100%`;
+                    } else {
+                        enjoyContents[i].style.left = `150%`;
+                    }
+                }
+            }
+        }
+    }
 })();

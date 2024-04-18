@@ -218,6 +218,7 @@
     }
 
     &-enjoy {
+        padding-bottom: 6.25rem;
         background: url('../images/bg_content.gif');
         .container {
             padding-bottom: 0;
@@ -310,30 +311,40 @@
                 }
             }
             
+            &-container {
+                position: relative;
+                max-width: 73.75rem;
+                height: 26.25rem;
+                margin: 0 auto;
+            }
             &-contents {
                 overflow: hidden;
-                .container {
-                    position: relative;
-                    height: 420px;
-                    padding:0;
-                }
-                ol {
-                    display: flex;
-                    transition: all .3s;
-                    position: absolute;
-                    left: 0;
-                    li {
-                        min-width: 1180px;
-                        padding: 0 1.875rem;
-                        img {
+                &-list {
+                    ol {
+                        display: flex;
+                        li {
+                            position: absolute;
+                            left: 150%;
+                            min-width: 1180px;
+                            padding: 0 1.875rem;
                             transition: all .3s;
-                            transform: scale(0.8);
-                        }
-                        &.active {
-                            transform: scale(1);
+                            img {
+                                transition: all .3s;
+                                transform: scale(0.6);
+                            }
+                            &.active {
+                                left: 0;
+                                img {
+                                    transform: scale(1);
+                                }
+                                + li {
+                                    left: 100%;
+                                }
+                            }
                         }
                     }
                 }
+
                 .enjoy-contents-button {
                     a {
                         position: absolute;
@@ -349,12 +360,93 @@
                         }
                     }
                     &-prev {
-                        left: 0;
+                        left: -1.875rem;
                         background: url('../images/icon_prev.png') no-repeat center center / 1.25rem;
                     }
                     &-next {
-                        right: 0;
+                        right: -1.875rem;
                         background: url('../images/icon_next.png') no-repeat center center / 1.25rem;
+                    }
+                }
+
+                &-text {
+                    position: absolute;
+                    top: 0;
+                    right: 3.75rem;
+                    bottom: 0;
+                    width: 22.5rem;
+                    padding: 1.875rem;
+                    border: 1px solid #ccc;
+                    background: white;
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 1.875rem;
+                        left: -0.75rem;
+                        width: 1.25rem;
+                        height: 1.25rem;
+                        border-top: 1px solid #ccc;
+                        border-left: 1px solid #ccc;
+                        transform: rotate(-45deg);
+                        transform-origin: center center;
+                        background: white;
+                    }
+                    &-num {
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        color: $mainColorGreen;
+                    }
+                    li {
+                        position: absolute;
+                        left: 1.875rem;
+                        right: 1.875rem;
+                        margin-top: 0.75rem;
+                        strong {
+                            position: relative;
+                            display: block;
+                            font-size: 1.5rem;
+                            font-weight: 400;
+                            padding-bottom: 1.25rem;
+                            margin-bottom: 1.25rem;
+                            opacity: 0;
+                            transform: translateX(1.25rem);
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                width: 0;
+                                height: 0.25rem;
+                                background: $mainColorOrange;
+                            }
+                        }
+                        p {
+                            font-size: 1.125rem;
+                            font-weight: 300;
+                            line-height: 1.4;
+                            color: #666;
+                            opacity: 0;
+                            transform: translateY(1.25rem);
+                        }
+
+                        &.active {
+                            strong {
+                                opacity: 1;
+                                transform: translateX(0);
+                                transition: all .3s;
+                                &:before {
+                                    width: 1.875rem;
+                                    transition: all .3s;
+                                    transition-delay: .3s;
+                                }
+                            }
+                            p {
+                                opacity: 1;
+                                transition: all .3s;
+                                transition-delay: 0.6s;
+                                transform: translateY(0);
+                            }
+                        }
                     }
                 }
             }
