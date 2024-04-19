@@ -65,16 +65,20 @@
     let moveLeft;
     
     enjoyNextButton.addEventListener(`click`, () => {
-        if(enjoyIdx < enjoyContents.length - 1) {
-            enjoyIdx++;
-            enjoyMoveLeft();
+        if(!enjoyNextButton.classList.contains(`disabled`)) {
+            if(enjoyIdx < enjoyContents.length - 1) {
+                enjoyIdx++;
+                enjoyMoveLeft();
+            }
         }
     });
 
     enjoyPrevButton.addEventListener(`click`, () => {
-        if(enjoyIdx != 0) {
-            enjoyIdx--;
-            enjoyMoveRight();
+        if(!enjoyPrevButton.classList.contains(`disabled`)) {
+            if(enjoyIdx != 0) {
+                enjoyIdx--;
+                enjoyMoveRight();
+            }
         }
     });
     
@@ -83,17 +87,23 @@
             if( i < enjoyIdx) {
                 enjoyTexts[i].classList.remove(`active`);
                 enjoyContents[i].classList.remove(`active`);
+                enjoySteps[i].classList.remove(`focus`);
                 if (i === enjoyIdx - 1) {
                     enjoyContents[i].style.left = `-50%`;
                 } else {
                     enjoyContents[i].style.left = `-100%`;
                 }
-            }  else if (i === enjoyIdx) {
+            } else if (i === enjoyIdx) { 
+                enjoyPrevButton.classList.remove(`disabled`);
                 enjoySteps[i].classList.add(`active`);
+                enjoySteps[i].classList.add(`focus`);
                 enjoyContents[i].classList.add(`active`);
                 enjoyTexts[i].classList.add(`active`);
                 enjoyNum.textContent = `STEP ${i + 1}`;
                 enjoyContents[i].style.left = `0`
+                if ( i >= enjoyContents.length -1 ) {
+                    enjoyNextButton.classList.add(`disabled`);
+                }
             } else {
                 if ( i === enjoyIdx + 1) {
                     enjoyContents[i].style.left = `100%`;
@@ -108,10 +118,17 @@
             if (i === enjoyIdx) {
                 enjoyTexts[i].classList.add(`active`);
                 enjoyContents[i].classList.add(`active`);
+                enjoySteps[i].classList.add(`focus`);
                 enjoyNum.textContent = `STEP ${i + 1}`;
                 enjoyContents[i].style.left = `0`;
+                if ( i == 0 ) {
+                    enjoyPrevButton.classList.add(`disabled`);
+                    enjoySteps[i].classList.remove(`focus`);
+                }
             } else {
+                enjoyNextButton.classList.remove(`disabled`);
                 enjoyTexts[i].classList.remove(`active`);
+                enjoySteps[i].classList.remove(`focus`);
                 enjoyContents[i].classList.remove(`active`);
                 if ( i === enjoyIdx + 1) {
                     enjoyContents[i].style.left = `100%`;
