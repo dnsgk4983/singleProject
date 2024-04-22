@@ -1,0 +1,11 @@
+footer {
+    background: #333;
+    .footer {
+        &-top {
+            border-bottom: 1px solid #f3f3f3;
+            ul {
+                width: 1200px;
+            }
+        }
+    }
+}

@@ -2,6 +2,7 @@
 @import 'components/common';
 // 구간별
 @import 'components/header';
+@import 'components/footer';
 @import 'components/quick';
 
 
@@ -459,6 +460,39 @@
                                 transition-delay: 0.6s;
                                 transform: translateY(0);
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-info {
+        .container {
+            padding: 3.75rem 0;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            li {
+                padding: 0 1.875rem;
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: #333;
+                    .icon-box {
+                        margin-right: 0.75rem;
+                    }
+                    .text-box {
+                        p {
+                            font-size: 1.125rem;
+                            font-weight: 600;
+                            margin-bottom: 0.5rem;
+                        }
+                        span {
+                            font-size: 0.875rem;
+                            font-weight: 500;
+                            color: #666;
                         }
                     }
                 }
