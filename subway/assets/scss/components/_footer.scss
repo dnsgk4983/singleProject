@@ -2,9 +2,29 @@ footer {
     background: #333;
     .footer {
         &-top {
-            border-bottom: 1px solid #f3f3f3;
+            border-bottom: 1px solid #666;
             ul {
+                display: flex;
+                align-items: center;
                 width: 1200px;
+                margin: 0 auto;
+                padding: 1.25rem 0;
+                li {
+                    margin-right: 1.25rem;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    a {
+                        font-size: 0.875rem;
+                        font-weight: 600;
+                        color: #666;
+                    }
+                    &.active {
+                        a {
+                            color: white;
+                        }
+                    }
+                }
             }
         }
     }

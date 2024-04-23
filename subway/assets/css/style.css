@@ -32,6 +32,8 @@ footer, header, hgroup, main, menu, nav, section {
 
 /* HTML5 hidden-attribute fix for newer browsers */
 * {
+  margin: 0;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -238,10 +240,32 @@ footer {
   background: #333;
 }
 footer .footer-top {
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid #666;
 }
 footer .footer-top ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 0;
+}
+footer .footer-top ul li {
+  margin-right: 1.25rem;
+}
+footer .footer-top ul li:last-child {
+  margin-right: 0;
+}
+footer .footer-top ul li a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666;
+}
+footer .footer-top ul li.active a {
+  color: white;
 }
 
 .quick-menu {
@@ -833,7 +857,7 @@ footer .footer-top ul {
           transform: translateY(0);
 }
 .section-info .container {
-  padding: 3.75rem 0;
+  padding: 1.875rem 0;
 }
 .section-info ul {
   display: -webkit-box;

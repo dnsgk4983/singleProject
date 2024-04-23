@@ -33,6 +33,8 @@ footer, header, hgroup, main, menu, nav, section {
 }
 /* HTML5 hidden-attribute fix for newer browsers */
 * {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 *[hidden] {
